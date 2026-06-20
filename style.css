@@ -1,0 +1,133 @@
+html, body {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #161616;
+  overflow: hidden;
+  transform: scale(1.5);
+   height: 100%;
+  margin: 0;
+}
+
+/* button */
+.btn {
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+}
+
+.btn::after {
+  content: "";
+  z-index:-1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  left:0;
+  top:0;
+  border-radius: 10px;
+}
+/* glow */
+.btn::before {
+   content: "";
+   background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00, #00FFD0, #2B65FF,
+     #8000FF, #FF0080, #FF0000
+   );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -2;
+    width : calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+@keyframes glowing {
+  
+  0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+}
+
+/* hover*/
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active::after {
+  background-color: transparent;
+}
+
+.btn:active {
+  color: #000;
+  font-weight: bold;
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.btn::before{
+  filter: blur(12px);
+}
+
+.btn{
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-8px);
+  }
+}
+
+.btn::after{
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+body::before{
+  content:'✨ ✨ ✨';
+  position:absolute;
+  animation: float 5s infinite;
+}
+
+.btn{
+  text-shadow: 0 0 10px #fff,
+               0 0 20px #ff00ff,
+               0 0 40px #ff00ff;
+}
+
+animation: colorChange 5s infinite;
+backdrop-filter: blur(10px);
+
+.container{
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+}
